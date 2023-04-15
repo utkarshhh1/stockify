@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: cursive;
+}
+body
+{
+background-image: url(stocks.jpg);
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+animation: changeImage 40s linear infinite;
+}
+@keyframes changeImage {
+    
+    0%{
+        background-image: url("stocks.jpg");
+    }
+    25%{
+        background-image: url("stocks2.jpg");
+    }
+    50%{
+        background-image: url("stocks3.jpg");
+    }
+    75%{
+        background-image: url("stocks4.jpg");
+    }
+    100%{
+        background-image: url("stocks5.jpg");
+    }
+}
+.container-fluid
+{
+
+    padding: 5px;
+
+}
+.navbar-brand
+{
+ color: #0d6efd;
+
+}

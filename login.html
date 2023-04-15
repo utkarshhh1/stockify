@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>Login Page </title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = " box">
+        <span class="borderLine"></span>
+        <form autocomplete="off" onsubmit="signup(event)">
+            <h2>Sign in</h2>
+            <div class="inputBox">
+                <input type="text" required="required" id="SignupEmail" placeholder="Email">
+                <span> Enter your Email</span>
+                <i> </i>
+
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required" id="signupPassword" placeholder="password">
+                <span> password</span>
+                <i> </i>
+            </div>
+            <div class="links">
+                <a href="#">Forgot Password</a>
+                <a href="#">Sign up</a>
+            </div>
+            <input type="submit" value="Login">
+
+        </form>
+    </div>
+    <script type="module">
+
+        // Import the functions you need from the SDKs you need
+  import { initializeApp } from "/firebase/auth";
+  import { getAuth, createUserWithEmailAndPassword } from "/firebase/auth";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCZzsqAh95CAc5SBhb7RHZo09UhXzgVgI0",
+    authDomain: "stockify-1.firebaseapp.com",
+    projectId: "stockify-1",
+    storageBucket: "stockify-1.appspot.com",
+    messagingSenderId: "798338758879",
+    appId: "1:798338758879:web:0613b58e78dc02adba516a"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  SubmitEvent.addEventListener('click',(e)=> {
+    var email = document.getElementById('SignupEmail').value;
+    var password = document.getElementById('signupPassword').value;
+  
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+      alert('user created successfully')
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  })
+  </script>
+  <script src="./scripts/auth.js"></script>
+</body>
+</html>
